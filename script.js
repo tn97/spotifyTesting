@@ -94,7 +94,7 @@ $('#login-button')
   .on('click', function () {
 
     var client_id = spotify_CLIENT; // Your client id
-    var redirect_uri = 'http://localhost:8000'; // Your redirect uri
+    var redirect_uri = 'https://tn97.github.io/spotifyTesting/'; // Your redirect uri
 
     // generate random state key
     var state = generateRandomString(16);
