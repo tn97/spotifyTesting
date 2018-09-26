@@ -1,0 +1,15 @@
+body {
+  background-color: #36393f;
+}
+
+#playlists {
+  color: white;
+}
+
+#playlistItem{
+  color: black;
+}
+
+.playlistBtn, .trackBtn{
+  margin: 10px;
+}

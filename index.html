@@ -7,23 +7,24 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
-  <title>Title</title>
+  <link rel="stylesheet" href="style.css">
+  <title>EndTim'sLife</title>
 </head>
 
 <body>
-
-  <h1>Log In To Spotify</h1>
   <button class="btn btn-lg btn-success" id="login-button">Login</button>
 
-
-  <div id="profile-info">
-
+  <div class="container">
+      <div id="profile-info"></div>
+    <h3 id="playlists" style="display:none">Playlists:</h3>
+    <h3 id="tracks" style="display:none">Tracks</h3>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.min.js"></script>
   <script src="spotify-web-api.js"></script>
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
   <script src="script.js"></script>
 </body>
 
