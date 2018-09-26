@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var spotify_CLIENT = "31ad0b6fdc1c4b9bad8f0b5fa7836d06";
   var stateKey = 'spotify_auth_state';
-  var bearer_token = "BQAjrnk9wVlAyJCN1k1GdJbSlHPzAFnlkNWb93vNHxjSzumkWvmfFtuaM1itpyx6GfbmG3Z3MiUExNQ7tWiUdTZ7Qs5bPlrM9Uk6Yge8c66_LQeSmMCAJo9CeNFAe21jgkNTAXYUycknpV4fSjEfkEMa2Yrm46Q43Dd1cun5re_IOxaeXyM5lYF8fqom7wKG2rqj90N8cvPzcxOp6g";
+  var bearer_token = "BQAWqcs1GL6F8qutafjHSldcI8b31Q8cBurkEGRUzi";
 
   // initiate spotify
   var spotifyApi = new SpotifyWebApi();
@@ -175,36 +175,27 @@ $(document).ready(function () {
   })
 
   $(document).on("click", ".trackItem", function () {
-    // $.ajax({
-    //   url: "https://api.spotify.com/v1/tracks/" + $(this).attr("data-value"),
-    //   method: "GET",
-    //   headers: {
-    //     'Authorization': "Bearer " + access_token
-    //   }
-    // }).then(function (response) {
-    //   result = response;
-    //   console.log(result);
-    // })
+    console.log($(this).attr("data-value"));
     // play track
     $.ajax({
       url: "https://api.spotify.com/v1/me/player/play?device_id=" + dev_id,
       method: "PUT",
-      data: {
-        "uris": [$(this).attr("data-uri")]
-      },
+      data: '{"uris": ["'+$(this).attr("data-uri")+'"]}',
       headers: {
         'Authorization': "Bearer " + access_token,
-      }
+      },
+      contentType:"application/json", 
+      Accept:"application/json"
       // headers stuff
     }).then(function (result) {
       console.log(result);
-    }).catch(function(err) {
+    }).catch(function (err) {
       console.log(err);
     })
   })
 
   window.onSpotifyWebPlaybackSDKReady = () => {
-    const token = 'BQDFDkBnHcrdLfXDEASdBh79mm53LmvDSGDnhhfj4qN_Jm-yPNW8fym3I9YQwp_92VQbtUAGUYw5ov4thOX77gJrL1y1xVVHK1d9J6WXbPAtHUsEtm4etkAfz4uYMrT3WsES_LQ1RKXfif97QZGbmj6hIGr1Zr3WIkbUpc4';
+    const token = 'BQDtwo4Ps-rWEkbBGcPNDhlDxFL6P8P9T8tkLijfcoc2_VZq1UM4RIVDuquzksz5mNMWh1mULTToNUGRIOtsI_lUxeR4RuxoP2IUhaakouVIUgKGMTn_Q_0gJXVhFcaa1qL3j8ogugoa__sAajyU5tQv8l-4htXuWkgzgeM';
     const player = new Spotify.Player({
       name: 'UtilSuit Player',
       getOAuthToken: cb => { cb(token); }
@@ -223,6 +214,7 @@ $(document).ready(function () {
     player.addListener('ready', ({ device_id }) => {
       console.log('Ready with Device ID', device_id);
       dev_id = device_id;
+      console.log(dev_id);
     });
 
     // Not Ready
